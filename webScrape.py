@@ -3,7 +3,7 @@ from pydoc import classname
 import requests
 from bs4 import BeautifulSoup
  
-def scraper(link):
+def scraper(link): # takes in link and outputs title and body text
     # Making a GET request
     r = requests.get(link)
     
