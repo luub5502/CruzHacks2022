@@ -1,13 +1,13 @@
 from flask import Flask,render_template,request
 from flask import url_for
-import pandas as pd
+#import pandas as pd
 import random
 app = Flask(__name__)
  
 @app.route('/')
 def form():
     return render_template('form.html')
-@app.route('/data/', methods = ['POST', 'GET'])
+@app.route('/data', methods = ['POST', 'GET'])
 def data():
     if request.method == 'GET':
         return f"The URL /data is accessed directly. Try going to '/form' to submit form"
@@ -15,7 +15,8 @@ def data():
         form_data = request.form
         link = form_data["link"]
         return render_template('data.html',form_data = form_data)
-@app.route('/About/')
+"""@app.route('/About/')
 def About():
     return render_template('About.html')
+    """
 app.run(host='localhost', port=5000)
